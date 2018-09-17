@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
+import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
 // @material-ui/icons
 import SearchIcon from '@material-ui/icons/Search';
@@ -100,7 +101,13 @@ class Filter extends React.Component {
           open={open}
         >
           <div className={classes.toolbar} />
-          {this.getFilterContent()}
+          <Paper
+            square
+            elevation={0}
+            className={classes.filterContent}
+          >
+            {this.getFilterContent()}
+          </Paper>
         </Drawer>
       </div>
     );
