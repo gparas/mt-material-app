@@ -10,6 +10,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import ArrowIcon from '@material-ui/icons/ArrowBack';
 
 const styles = theme => ({
+  arrowButton: {
+    marginLeft: 12,
+    marginRight: 20,
+  },
+  searchButton: {
+    marginRight: 12,
+  },
   searchInput: {
     paddingLeft: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
@@ -18,11 +25,12 @@ const styles = theme => ({
 
 function HeaderSearchDrawer({ onClose, classes }) {
   return (
-    <Toolbar>
+    <Toolbar disableGutters>
       <IconButton
         color="inherit"
         aria-label="Close"
         onClick={onClose}
+        className={classes.arrowButton}
       >
         <ArrowIcon />
       </IconButton>
@@ -36,6 +44,7 @@ function HeaderSearchDrawer({ onClose, classes }) {
       <IconButton
         color="inherit"
         aria-label="Search"
+        className={classes.searchButton}
       >
         <SearchIcon />
       </IconButton>

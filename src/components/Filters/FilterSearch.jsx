@@ -16,6 +16,7 @@ const Search = ({ onClick }) => (
       label="Find a Vessel or Port"
       variant="outlined"
       margin="normal"
+      required
     />
     <TextField
       id="find-map-location"
