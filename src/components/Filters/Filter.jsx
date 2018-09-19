@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // @material-ui/core components
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -32,22 +33,36 @@ const actions = [
   { icon: <WeatherIcon />, name: 'Weather' },
 ];
 
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark',
+    action: {
+      hover: '#173D9A',
+      selected: '#173D9A',
+    },
+  },
+});
 
 class Filter extends React.Component {
   state = {
     open: false,
     activeFilter: 0,
+    selectedIndex: null,
   };
 
   handleDrawerOpen = (i) => {
     this.setState({
       open: true,
       activeFilter: i,
+      selectedIndex: i,
     });
   };
 
   handleDrawerClose = () => {
-    this.setState({ open: false });
+    this.setState({
+      open: false,
+      selectedIndex: null,
+    });
   };
 
   getFilterContent = () => {
@@ -70,9 +85,9 @@ class Filter extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { open } = this.state;
+    const { open, selectedIndex } = this.state;
     return (
-      <div className={classes.filterWrapper}>
+      <MuiThemeProvider theme={theme}>
         <Hidden xsDown>
           <Drawer
             variant="permanent"
@@ -87,6 +102,7 @@ class Filter extends React.Component {
                   key={action.name}
                   icon={action.icon}
                   tooltipTitle={action.name}
+                  selected={selectedIndex === i}
                   onClick={() => this.handleDrawerOpen(i)}
                 />
               ))}
@@ -101,15 +117,9 @@ class Filter extends React.Component {
           open={open}
         >
           <div className={classes.toolbar} />
-          <Paper
-            square
-            elevation={0}
-            className={classes.filterContent}
-          >
-            {this.getFilterContent()}
-          </Paper>
+          {this.getFilterContent()}
         </Drawer>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }

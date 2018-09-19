@@ -1,18 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // @material-ui/core components
+import { withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-function FilterAction({ tooltipTitle, icon, onClick }) {
+const style = theme => ({
+  listItem: {
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+  },
+  listItemIcon: {
+    margin: 0,
+  },
+});
+
+function FilterAction({
+  classes,
+  tooltipTitle,
+  selected,
+  icon,
+  onClick,
+}) {
   return (
     <Tooltip title={tooltipTitle} placement="right">
       <ListItem
         button
+        selected={selected}
         onClick={onClick}
+        className={classes.listItem}
       >
-        <ListItemIcon style={{ color: 'white' }}>
+        <ListItemIcon className={classes.listItemIcon}>
           {icon}
         </ListItemIcon>
       </ListItem>
@@ -24,6 +43,7 @@ FilterAction.propTypes = {
   icon: PropTypes.node.isRequired,
   tooltipTitle: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
-export default FilterAction;
+export default withStyles(style)(FilterAction);

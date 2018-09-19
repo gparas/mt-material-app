@@ -1,32 +1,32 @@
+const drawerWidth = 320;
+const drawerActionWidth = 56;
+
 const filterStyle = theme => ({
   drawerPaper: {
-    position: 'relative',
-    width: 320,
-    transition: theme.transitions.create('width', {
+    width: drawerWidth,
+    left: drawerActionWidth,
+    zIndex: theme.zIndex.drawer - 1,
+    transition: theme.transitions.create('left', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    backgroundColor: theme.palette.primary.light,
+    ...theme.mixins.gutters(),
   },
   drawerPaperClose: {
-    overflowX: 'hidden',
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create('left', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    width: 0,
+    left: -drawerWidth,
   },
   drawerPaperAction: {
-    position: 'relative',
-    border: 0,
-    width: theme.spacing.unit * 9,
+    boxSizing: 'content-box',
+    width: drawerActionWidth,
     backgroundColor: theme.palette.primary.main,
   },
   toolbar: theme.mixins.toolbar,
-  filterWrapper: {
-    display: 'flex',
-  },
   filterContent: {
-    ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
   },

@@ -8,7 +8,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#2b3d7c',
+      light: '#173D9A',
+      main: '#00186B',
     },
     secondary: {
       main: '#03adef',
@@ -25,11 +26,11 @@ const theme = createMuiTheme({
     ].join(','),
     fontWeightMedium: 600,
   },
-  // mixins: {
-  //   toolbar: {
-  //     minHeight: 56,
-  //   },
-  // },
+  mixins: {
+    toolbar: {
+      minHeight: 56,
+    },
+  },
   overrides: {
     MuiButton: {
       root: {
