@@ -2,17 +2,31 @@ import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+import { primary, secondary } from './utils/colors';
+
 // A theme with custom primary and secondary color.
 // It's optional.
 
 const theme = createMuiTheme({
   palette: {
+    type: 'dark',
+    background: {
+      default: '#060847',
+      paper: primary.main,
+    },
+    action: {
+      selected: primary.main,
+      hover: primary.light,
+    },
     primary: {
-      light: '#173D9A',
-      main: '#00186B',
+      light: primary.light,
+      main: primary.main,
+      dark: primary.dark,
     },
     secondary: {
-      main: '#03adef',
+      light: secondary.light,
+      main: secondary.main,
+      dark: secondary.dark,
       contrastText: '#fff',
     },
   },
@@ -36,6 +50,11 @@ const theme = createMuiTheme({
       root: {
         fontWeight: 600,
         textTransform: 'capitalize',
+      },
+    },
+    MuiAppBar: {
+      colorPrimary: {
+        backgroundColor: primary.dark,
       },
     },
   },

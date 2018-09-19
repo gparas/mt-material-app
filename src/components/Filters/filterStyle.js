@@ -10,7 +10,6 @@ const filterStyle = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    backgroundColor: theme.palette.primary.light,
     ...theme.mixins.gutters(),
   },
   drawerPaperClose: {
@@ -23,7 +22,7 @@ const filterStyle = theme => ({
   drawerPaperAction: {
     boxSizing: 'content-box',
     width: drawerActionWidth,
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.dark,
   },
   toolbar: theme.mixins.toolbar,
   filterContent: {

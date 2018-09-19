@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // @material-ui/core components
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
 // @material-ui/icons
 import SearchIcon from '@material-ui/icons/Search';
@@ -32,16 +30,6 @@ const actions = [
   { icon: <LayersIcon />, name: 'Layers' },
   { icon: <WeatherIcon />, name: 'Weather' },
 ];
-
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark',
-    action: {
-      hover: '#173D9A',
-      selected: '#173D9A',
-    },
-  },
-});
 
 class Filter extends React.Component {
   state = {
@@ -87,7 +75,7 @@ class Filter extends React.Component {
     const { classes } = this.props;
     const { open, selectedIndex } = this.state;
     return (
-      <MuiThemeProvider theme={theme}>
+      <React.Fragment>
         <Hidden xsDown>
           <Drawer
             variant="permanent"
@@ -119,7 +107,7 @@ class Filter extends React.Component {
           <div className={classes.toolbar} />
           {this.getFilterContent()}
         </Drawer>
-      </MuiThemeProvider>
+      </React.Fragment>
     );
   }
 }

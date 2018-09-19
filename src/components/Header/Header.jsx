@@ -103,6 +103,9 @@ class Header extends React.Component {
           open={openSearch}
           anchor="top"
           onClose={this.handleSearchDrawerClose}
+          classes={{
+            paper: classes.searchDrawer,
+          }}
         >
           <HeaderSearchDrawer onClose={this.handleSearchDrawerClose} />
         </Drawer>

@@ -12,6 +12,9 @@ const headerStyle = theme => ({
     display: 'flex',
     marginLeft: 'auto',
   },
+  searchDrawer: {
+    backgroundColor: theme.palette.common.white,
+  },
   searchWrapper: {
     position: 'relative',
     alignSelf: 'center',

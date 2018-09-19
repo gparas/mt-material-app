@@ -7,11 +7,12 @@ import IconButton from '@material-ui/core/IconButton';
 // @material-ui/icons
 import CloseIcon from '@material-ui/icons/Close';
 
-const style = () => ({
+const style = theme => ({
   root: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingTop: theme.spacing.unit,
   },
 });
 

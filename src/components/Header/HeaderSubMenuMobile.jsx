@@ -30,7 +30,7 @@ class HeaderSubMenuMobile extends React.Component {
             {icon}
           </ListItemIcon>
           <ListItemText primary={name} />
-          {open ? <ExpandLess /> : <ExpandMore />}
+          {open ? <ExpandLess nativeColor="white" /> : <ExpandMore nativeColor="white" />}
         </ListItem>
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
@@ -48,6 +48,7 @@ class HeaderSubMenuMobile extends React.Component {
 
 HeaderSubMenuMobile.propTypes = {
   name: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
   menuItem: PropTypes.array.isRequired,
 };
 
