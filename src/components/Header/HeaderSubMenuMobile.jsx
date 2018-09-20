@@ -48,7 +48,7 @@ class HeaderSubMenuMobile extends React.Component {
 
 HeaderSubMenuMobile.propTypes = {
   name: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.object.isRequired,
   menuItem: PropTypes.array.isRequired,
 };
 

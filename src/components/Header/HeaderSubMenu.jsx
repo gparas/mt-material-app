@@ -1,17 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// @material-ui/core components
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Popper from '@material-ui/core/Popper';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import MenuList from '@material-ui/core/MenuList';
-import MenuItem from '@material-ui/core/MenuItem';
+
+// @material-ui/core
+import {
+  withStyles,
+  Button,
+  Popper,
+  Grow,
+  Paper,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+  ClickAwayListener,
+} from '@material-ui/core';
+
 // @material-ui/icons
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import {
+  ExpandLess,
+  ExpandMore,
+} from '@material-ui/icons';
+
 // custom
 import headerStyle from './headerStyle';
 
@@ -34,9 +43,14 @@ class HeaderSubMenu extends React.Component {
 
   render() {
     const { open } = this.state;
-    const { name, icon, menuItem } = this.props;
+    const {
+      name,
+      icon,
+      menuItem,
+      classes,
+    } = this.props;
     return (
-      <div>
+      <React.Fragment>
         <Button
           color="inherit"
           buttonRef={(node) => {
@@ -57,21 +71,30 @@ class HeaderSubMenu extends React.Component {
               id={name}
               style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
             >
-              <Paper>
+              <Paper className={classes.dropDownMenu}>
                 <ClickAwayListener onClickAway={this.handleClose}>
-                  <MenuList>
+                  <List dense>
                     {menuItem.map(subMenu => (
-                      <MenuItem key={subMenu.id} onClick={this.handleClose}>
-                        {subMenu.name}
-                      </MenuItem>
+                      <ListItem
+                        key={subMenu.id}
+                        onClick={this.handleClose}
+                        className={classes.dropDownMenuItem}
+                      >
+                        <ListItemText
+                          disableTypography
+                          primary={
+                            <Typography color="inherit" component="span">{subMenu.name}</Typography>
+                          }
+                        />
+                      </ListItem>
                     ))}
-                  </MenuList>
+                  </List>
                 </ClickAwayListener>
               </Paper>
             </Grow>
           )}
         </Popper>
-      </div>
+      </React.Fragment>
     );
   }
 }

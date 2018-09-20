@@ -1,18 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 // @material-ui/core components
-import { withStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import {
+  withStyles,
+  Tooltip,
+  ListItem,
+  ListItemIcon,
+} from '@material-ui/core';
+
 
 const style = theme => ({
   listItem: {
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2,
+    '&:hover': {
+      backgroundColor: theme.palette.brand.action.hover,
+    },
+    '&$selected': {
+      backgroundColor: theme.palette.brand.action.selected,
+      '&:hover': {
+        backgroundColor: theme.palette.brand.action.hover,
+      },
+    },
   },
+  selected: {},
   listItemIcon: {
     margin: 0,
+    color: theme.palette.primary.contrastText,
   },
 });
 
@@ -29,7 +44,10 @@ function FilterAction({
         button
         selected={selected}
         onClick={onClick}
-        className={classes.listItem}
+        classes={{
+          root: classes.listItem,
+          selected: classes.selected,
+        }}
       >
         <ListItemIcon className={classes.listItemIcon}>
           {icon}
@@ -43,6 +61,7 @@ FilterAction.propTypes = {
   icon: PropTypes.node.isRequired,
   tooltipTitle: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

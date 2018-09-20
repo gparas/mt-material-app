@@ -11,7 +11,7 @@ import ArrowIcon from '@material-ui/icons/ArrowBack';
 
 const styles = theme => ({
   arrowButton: {
-    marginLeft: 12,
+    marginLeft: theme.spacing.unit / 2,
     marginRight: 20,
   },
   searchButton: {

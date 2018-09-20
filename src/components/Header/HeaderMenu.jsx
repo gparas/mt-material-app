@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 // @material-ui/core components
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import {
+  withStyles,
+  Button,
+} from '@material-ui/core';
+
 // custom
 import HeaderSubMenu from './HeaderSubMenu';
 import headerStyle from './headerStyle';

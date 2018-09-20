@@ -1,5 +1,3 @@
-import { fade } from '@material-ui/core/styles/colorManipulator';
-
 const headerStyle = theme => ({
   appBar: {
     zIndex: theme.zIndex.modal,
@@ -12,35 +10,17 @@ const headerStyle = theme => ({
     display: 'flex',
     marginLeft: 'auto',
   },
-  searchDrawer: {
-    backgroundColor: theme.palette.common.white,
+  dropDownMenu: {
+    backgroundColor: theme.palette.brand.paper,
   },
-  searchWrapper: {
-    position: 'relative',
-    alignSelf: 'center',
-    borderRadius: theme.shape.borderRadius,
-    marginRight: theme.spacing.unit,
-    [theme.breakpoints.up('sm')]: {
-      backgroundColor: fade(theme.palette.common.black, 0.15),
-      '&:hover': {
-        backgroundColor: fade(theme.palette.common.black, 0.25),
-      },
+  dropDownMenuItem: {
+    color: theme.palette.primary.contrastText,
+    '&:hover': {
+      backgroundColor: theme.palette.brand.action.hover,
     },
-  },
-  searchIcon: {
-    width: theme.spacing.unit * 5,
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  searchInput: {
-    paddingRight: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 5,
-    width: '100%',
-    color: 'inherit',
+    '&.selected': {
+      backgroundColor: theme.palette.brand.action.selected,
+    },
   },
 });
 

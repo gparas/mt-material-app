@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 // @material-ui/core components
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
-import Hidden from '@material-ui/core/Hidden';
-import Drawer from '@material-ui/core/Drawer';
+import {
+  withStyles,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Badge,
+  Hidden,
+  Drawer,
+} from '@material-ui/core';
+
 // @material-ui/icons
-import UserIcon from '@material-ui/icons/Person';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
+import {
+  Person,
+  Notifications,
+  Menu,
+  Search,
+} from '@material-ui/icons';
+
 // custom
-import HeaderSearch from './HeaderSearch';
 import HeaderSearchDrawer from './HeaderSearchDrawer';
 import HeaderMenu from './HeaderMenu';
 import HeaderMenuMobile from './HeaderMenuMobile';
@@ -61,24 +67,21 @@ class Header extends React.Component {
             <HeaderMenu />
           </Hidden>
           <div className={classes.rightMenu}>
-            <Hidden xsUp>
-              <HeaderSearch />
-            </Hidden>
             <IconButton
               color="inherit"
               onClick={this.handleSearchDrawerOpen}
             >
-              <SearchIcon />
+              <Search />
             </IconButton>
             <Hidden mdDown>
               <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">
-                  <NotificationsIcon />
+                  <Notifications />
                 </Badge>
               </IconButton>
             </Hidden>
             <IconButton color="inherit">
-              <UserIcon />
+              <Person />
             </IconButton>
             <Hidden lgUp>
               <IconButton
@@ -86,7 +89,7 @@ class Header extends React.Component {
                 onClick={this.handleDrawerOpen}
               >
                 <Badge badgeContent={4} color="secondary">
-                  <MenuIcon />
+                  <Menu />
                 </Badge>
               </IconButton>
             </Hidden>
@@ -103,9 +106,6 @@ class Header extends React.Component {
           open={openSearch}
           anchor="top"
           onClose={this.handleSearchDrawerClose}
-          classes={{
-            paper: classes.searchDrawer,
-          }}
         >
           <HeaderSearchDrawer onClose={this.handleSearchDrawerClose} />
         </Drawer>

@@ -24,6 +24,9 @@ const filterStyle = theme => ({
     width: drawerActionWidth,
     backgroundColor: theme.palette.primary.dark,
   },
+  drawerPaperActionIcon: {
+    color: theme.palette.primary.contrastText,
+  },
   toolbar: theme.mixins.toolbar,
   filterContent: {
     paddingTop: theme.spacing.unit * 2,
