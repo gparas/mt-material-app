@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 // @material-ui/core components
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Hidden from '@material-ui/core/Hidden';
-// @material-ui/icons
-import SearchIcon from '@material-ui/icons/Search';
-import FilterIcon from '@material-ui/icons/FilterList';
-import BoatIcon from '@material-ui/icons/DirectionsBoat';
-import LayersIcon from '@material-ui/icons/Layers';
-import WeatherIcon from '@material-ui/icons/Waves';
+import {
+  Hidden,
+  List,
+  Drawer,
+  withStyles,
+} from '@material-ui/core';
+
+import {
+  Boat,
+  Filter,
+  Layer,
+  Wind,
+  Zoom,
+} from '../Icons';
 
 import FilterAction from './FilterAction';
 
@@ -24,14 +29,14 @@ import Weather from './FilterWeather';
 import filterStyle from './filterStyle';
 
 const actions = [
-  { icon: <SearchIcon />, name: 'Search' },
-  { icon: <FilterIcon />, name: 'Vessel' },
-  { icon: <BoatIcon />, name: 'Fleet' },
-  { icon: <LayersIcon />, name: 'Layers' },
-  { icon: <WeatherIcon />, name: 'Weather' },
+  { icon: <Zoom />, name: 'Search' },
+  { icon: <Filter />, name: 'Vessel' },
+  { icon: <Boat />, name: 'Fleet' },
+  { icon: <Layer />, name: 'Layers' },
+  { icon: <Wind />, name: 'Weather' },
 ];
 
-class Filter extends React.Component {
+class Filters extends React.Component {
   state = {
     open: false,
     activeFilter: 0,
@@ -113,8 +118,8 @@ class Filter extends React.Component {
 }
 
 
-Filter.propTypes = {
+Filters.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(filterStyle)(Filter);
+export default withStyles(filterStyle)(Filters);

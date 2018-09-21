@@ -2,14 +2,14 @@ import React from 'react';
 
 import withRoot from './withRoot';
 import Header from './components/Header/Header';
-import Filter from './components/Filters/Filter';
+import Filters from './components/Filters/Filters';
 
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Filter />
+      <Filters />
     </React.Fragment>
   );
 }

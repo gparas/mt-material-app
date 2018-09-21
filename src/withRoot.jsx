@@ -41,11 +41,11 @@ const theme = createMuiTheme({
     ].join(','),
     fontWeightMedium: 600,
   },
-  mixins: {
-    toolbar: {
-      minHeight: 56,
-    },
-  },
+  // mixins: {
+  //   toolbar: {
+  //     // minHeight: 56,
+  //   },
+  // },
   overrides: {
     MuiButton: {
       root: {

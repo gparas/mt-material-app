@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 // @material-ui/core
 import {
@@ -10,6 +11,7 @@ import {
   Paper,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
   Typography,
   ClickAwayListener,
@@ -59,6 +61,7 @@ class HeaderSubMenu extends React.Component {
           aria-owns={open ? name : null}
           aria-haspopup="true"
           onClick={this.handleToggle}
+          className={classNames(open && classes.buttonActive)}
         >
           {icon}
           {name}
@@ -76,12 +79,29 @@ class HeaderSubMenu extends React.Component {
                   <List dense>
                     {menuItem.map(subMenu => (
                       <ListItem
+                        divider={subMenu.divider}
                         key={subMenu.id}
                         onClick={this.handleClose}
-                        className={classes.dropDownMenuItem}
+                        classes={{
+                          root: classes.dropDownMenuItem,
+                          divider: classes.dropDownMenuItemDivider,
+                        }}
                       >
+                        {
+                          subMenu.icon !== undefined && (
+                            <ListItemIcon
+                              className={classes.dropDownMenuIcon}
+                            >
+                              {subMenu.icon}
+                            </ListItemIcon>
+                          )
+                        }
                         <ListItemText
+                          inset={subMenu.inset}
                           disableTypography
+                          classes={{
+                            inset: classes.dropDownMenuTextInset,
+                          }}
                           primary={
                             <Typography color="inherit" component="span">{subMenu.name}</Typography>
                           }
