@@ -3,21 +3,12 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { primaryColor, secondaryColor } from './utils/colors';
-
-// A theme with custom primary and secondary color.
-// It's optional.
+import { dark } from './utils/theme';
 
 const theme = createMuiTheme({
   palette: {
-    brand: {
-      paper: primaryColor[700],
-      action: {
-        hover: primaryColor[500],
-        selected: primaryColor[700],
-      },
-    },
     background: {
-      default: '#060847',
+      default: dark.background.default,
     },
     primary: {
       light: primaryColor[300],
@@ -41,11 +32,6 @@ const theme = createMuiTheme({
     ].join(','),
     fontWeightMedium: 600,
   },
-  // mixins: {
-  //   toolbar: {
-  //     // minHeight: 56,
-  //   },
-  // },
   overrides: {
     MuiButton: {
       root: {
@@ -63,11 +49,8 @@ const theme = createMuiTheme({
 
 function withRoot(Component) {
   function WithRoot(props) {
-    // MuiThemeProvider makes the theme available down the React tree
-    // thanks to React context.
     return (
       <MuiThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...props} />
       </MuiThemeProvider>

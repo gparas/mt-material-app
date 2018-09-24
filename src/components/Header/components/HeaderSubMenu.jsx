@@ -47,7 +47,6 @@ class HeaderSubMenu extends React.Component {
     const { open } = this.state;
     const {
       name,
-      icon,
       menuItem,
       classes,
     } = this.props;
@@ -63,7 +62,6 @@ class HeaderSubMenu extends React.Component {
           onClick={this.handleToggle}
           className={classNames(open && classes.buttonActive)}
         >
-          {icon}
           {name}
           {open ? <ExpandLess /> : <ExpandMore />}
         </Button>
@@ -74,23 +72,23 @@ class HeaderSubMenu extends React.Component {
               id={name}
               style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
             >
-              <Paper className={classes.dropDownMenu}>
+              <Paper className={classes.paperBackgroundColor}>
                 <ClickAwayListener onClickAway={this.handleClose}>
                   <List dense>
                     {menuItem.map(subMenu => (
                       <ListItem
-                        divider={subMenu.divider}
                         key={subMenu.id}
+                        divider={subMenu.divider}
                         onClick={this.handleClose}
                         classes={{
-                          root: classes.dropDownMenuItem,
-                          divider: classes.dropDownMenuItemDivider,
+                          root: classes.listItem,
+                          divider: classes.listItemDivider,
                         }}
                       >
                         {
                           subMenu.icon !== undefined && (
                             <ListItemIcon
-                              className={classes.dropDownMenuIcon}
+                              className={classes.listItemIconColor}
                             >
                               {subMenu.icon}
                             </ListItemIcon>
@@ -98,13 +96,10 @@ class HeaderSubMenu extends React.Component {
                         }
                         <ListItemText
                           inset={subMenu.inset}
-                          disableTypography
                           classes={{
-                            inset: classes.dropDownMenuTextInset,
+                            primary: classes.listItemTextColor,
                           }}
-                          primary={
-                            <Typography color="inherit" component="span">{subMenu.name}</Typography>
-                          }
+                          primary={subMenu.name}
                         />
                       </ListItem>
                     ))}

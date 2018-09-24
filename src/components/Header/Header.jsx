@@ -99,6 +99,9 @@ class Header extends React.Component {
           open={open}
           anchor="right"
           onClose={this.handleDrawerClose}
+          classes={{
+            paper: classes.paperBackgroundColor,
+          }}
         >
           <HeaderMenuMobile />
         </Drawer>

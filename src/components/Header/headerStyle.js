@@ -1,6 +1,8 @@
+import { dark } from '../../utils/theme';
+
 const headerStyle = theme => ({
   appBar: {
-    zIndex: theme.zIndex.modal,
+    zIndex: theme.zIndex.drawer + 1,
   },
   mainMenu: {
     display: 'flex',
@@ -10,38 +12,28 @@ const headerStyle = theme => ({
     display: 'flex',
     marginLeft: 'auto',
   },
-  buttonActive: {
-    backgroundColor: theme.palette.brand.action.selected,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    '&:hover': {
-      backgroundColor: theme.palette.brand.action.selected,
-    },
+  // Dropdown menu & mobile drawer style
+  paperBackgroundColor: {
+    backgroundColor: dark.background.paper,
   },
-  dropDownMenu: {
-    backgroundColor: theme.palette.brand.paper,
-  },
-  dropDownMenuItem: {
-    color: theme.palette.primary.contrastText,
+  listItem: {
     '&:hover': {
       cursor: 'pointer',
-      backgroundColor: theme.palette.brand.action.hover,
+      backgroundColor: dark.action.hover,
     },
-    '&.selected': {
-      backgroundColor: theme.palette.brand.action.selected,
+    '&$selected, &$selected:hover': {
+      backgroundColor: dark.action.selected,
     },
   },
-  dropDownMenuItemDivider: {
-    borderBottomColor: 'rgba(255, 255, 255, 0.12)',
+  selected: {},
+  listItemDivider: {
+    borderBottomColor: dark.divider,
   },
-  dropDownMenuIcon: {
-    color: 'inherit',
-    marginRight: 0,
+  listItemTextColor: {
+    color: dark.text.primary,
   },
-  dropDownMenuTextInset: {
-    '&:first-child': {
-      paddingLeft: theme.spacing.unit * 5,
-    },
+  listItemIconColor: {
+    color: dark.text.primary,
   },
 });
 

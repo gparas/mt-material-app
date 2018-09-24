@@ -15,12 +15,12 @@ const style = theme => ({
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2,
     '&:hover': {
-      backgroundColor: theme.palette.brand.action.hover,
+      // backgroundColor: theme.palette.brand.action.hover,
     },
     '&$selected': {
-      backgroundColor: theme.palette.brand.action.selected,
+      // backgroundColor: theme.palette.brand.action.selected,
       '&:hover': {
-        backgroundColor: theme.palette.brand.action.hover,
+        // backgroundColor: theme.palette.brand.action.hover,
       },
     },
   },

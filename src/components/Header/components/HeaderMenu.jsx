@@ -28,7 +28,6 @@ function HeaderMenu({ classes }) {
         }
         return (
           <Button color="inherit" key={menuItem.id}>
-            {menuItem.icon}
             {menuItem.name}
           </Button>
         );
