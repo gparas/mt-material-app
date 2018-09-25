@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 // @material-ui/core components
-import { withStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
+import {
+  withStyles,
+  Input,
+} from '@material-ui/core';
+
 // @material-ui/icons
 import SearchIcon from '@material-ui/icons/Search';
-// custom
-import headerStyle from './headerStyle';
 
-function HeaderSearch({ classes }) {
+// custom
+import headerStyle from '../headerStyle';
+
+function Search({ classes }) {
   return (
     <div className={classes.searchWrapper}>
       <div className={classes.searchIcon}>
@@ -19,8 +24,8 @@ function HeaderSearch({ classes }) {
   );
 }
 
-HeaderSearch.propTypes = {
+Search.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(headerStyle)(HeaderSearch);
+export default withStyles(headerStyle)(Search);

@@ -13,7 +13,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography,
   ClickAwayListener,
 } from '@material-ui/core';
 
@@ -24,9 +23,9 @@ import {
 } from '@material-ui/icons';
 
 // custom
-import headerStyle from './headerStyle';
+import headerStyle from '../headerStyle';
 
-class HeaderSubMenu extends React.Component {
+class SubMenu extends React.Component {
   state = {
     open: false,
   };
@@ -114,10 +113,10 @@ class HeaderSubMenu extends React.Component {
   }
 }
 
-HeaderSubMenu.propTypes = {
+SubMenu.propTypes = {
   name: PropTypes.string.isRequired,
   menuItem: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(headerStyle)(HeaderSubMenu);
+export default withStyles(headerStyle)(SubMenu);

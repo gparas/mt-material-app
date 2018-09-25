@@ -8,7 +8,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography,
   Collapse,
 } from '@material-ui/core';
 
@@ -19,9 +18,9 @@ import {
 } from '@material-ui/icons';
 
 // custom
-import headerStyle from './headerStyle';
+import headerStyle from '../headerStyle';
 
-class HeaderSubMenuMobile extends React.Component {
+class SubMenuMobile extends React.Component {
   state = {
     open: false,
   };
@@ -88,10 +87,10 @@ class HeaderSubMenuMobile extends React.Component {
   }
 }
 
-HeaderSubMenuMobile.propTypes = {
+SubMenuMobile.propTypes = {
   name: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
   menuItem: PropTypes.array.isRequired,
 };
 
-export default withStyles(headerStyle)(HeaderSubMenuMobile);
+export default withStyles(headerStyle)(SubMenuMobile);

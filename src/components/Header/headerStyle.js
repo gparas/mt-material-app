@@ -35,6 +35,14 @@ const headerStyle = theme => ({
   listItemIconColor: {
     color: dark.text.primary,
   },
+  buttonActive: {
+    backgroundColor: dark.action.selected,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    '&:hover': {
+      backgroundColor: dark.action.selected,
+    },
+  },
 });
 
 export default headerStyle;

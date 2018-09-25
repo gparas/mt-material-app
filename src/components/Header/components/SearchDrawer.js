@@ -1,13 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 // @material-ui/core components
-import { withStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-// @material-ui/icons
-import SearchIcon from '@material-ui/icons/Search';
-import ArrowIcon from '@material-ui/icons/ArrowBack';
+import {
+  withStyles,
+  Input,
+  Toolbar,
+  IconButton,
+} from '@material-ui/core';
+
+// Icons
+import {
+  IoIosArrowRoundBack,
+  IoIosSearch,
+} from 'react-icons/io';
+
+import { FiSearch } from 'react-icons/fi';
 
 const styles = theme => ({
   arrowButton: {
@@ -23,7 +31,7 @@ const styles = theme => ({
   },
 });
 
-function HeaderSearchDrawer({ onClose, classes }) {
+function SearchDrawer({ onClose, classes }) {
   return (
     <Toolbar disableGutters>
       <IconButton
@@ -32,7 +40,7 @@ function HeaderSearchDrawer({ onClose, classes }) {
         onClick={onClose}
         className={classes.arrowButton}
       >
-        <ArrowIcon />
+        <IoIosArrowRoundBack />
       </IconButton>
       <Input
         disableUnderline
@@ -46,15 +54,15 @@ function HeaderSearchDrawer({ onClose, classes }) {
         aria-label="Search"
         className={classes.searchButton}
       >
-        <SearchIcon />
+        <IoIosSearch />
       </IconButton>
     </Toolbar>
   );
 }
 
-HeaderSearchDrawer.propTypes = {
+SearchDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(HeaderSearchDrawer);
+export default withStyles(styles)(SearchDrawer);

@@ -15,12 +15,12 @@ import {
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
 // custom
-import HeaderSubMenuMobile from './HeaderSubMenuMobile';
-import appBarRoutes from '../../routes/appBar';
-import headerStyle from './headerStyle';
+import SubMenuMobile from './SubMenuMobile';
+import appBarRoutes from '../../../routes/appBar';
+import headerStyle from '../headerStyle';
 
 
-function HeaderMenuMobile({ classes }) {
+function MenuMobile({ classes }) {
   return (
     <React.Fragment>
       <List component="div">
@@ -47,7 +47,7 @@ function HeaderMenuMobile({ classes }) {
         {appBarRoutes.map((menuItem) => {
           if (menuItem.children !== undefined) {
             return (
-              <HeaderSubMenuMobile
+              <SubMenuMobile
                 key={menuItem.id}
                 name={menuItem.name}
                 icon={menuItem.icon}
@@ -78,8 +78,8 @@ function HeaderMenuMobile({ classes }) {
   );
 }
 
-HeaderMenuMobile.propTypes = {
+MenuMobile.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(headerStyle)(HeaderMenuMobile);
+export default withStyles(headerStyle)(MenuMobile);

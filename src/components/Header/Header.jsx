@@ -17,14 +17,21 @@ import {
 import {
   Person,
   Notifications,
-  Menu,
-  Search,
+  // Menu,
+  // Search,
 } from '@material-ui/icons';
 
+import {
+  Zoom,
+} from '../Icons';
+
 // custom
-import HeaderSearchDrawer from './HeaderSearchDrawer';
-import HeaderMenu from './HeaderMenu';
-import HeaderMenuMobile from './HeaderMenuMobile';
+import {
+  Menu,
+  MenuMobile,
+  SearchDrawer,
+} from './components';
+
 import headerStyle from './headerStyle';
 
 class Header extends React.Component {
@@ -64,14 +71,14 @@ class Header extends React.Component {
             MarineTraffic
           </Typography>
           <Hidden mdDown>
-            <HeaderMenu />
+            <Menu />
           </Hidden>
           <div className={classes.rightMenu}>
             <IconButton
               color="inherit"
               onClick={this.handleSearchDrawerOpen}
             >
-              <Search />
+              <Zoom />
             </IconButton>
             <Hidden mdDown>
               <IconButton color="inherit">
@@ -89,7 +96,7 @@ class Header extends React.Component {
                 onClick={this.handleDrawerOpen}
               >
                 <Badge badgeContent={4} color="secondary">
-                  <Menu />
+                  <Notifications />
                 </Badge>
               </IconButton>
             </Hidden>
@@ -103,14 +110,14 @@ class Header extends React.Component {
             paper: classes.paperBackgroundColor,
           }}
         >
-          <HeaderMenuMobile />
+          <MenuMobile />
         </Drawer>
         <Drawer
           open={openSearch}
           anchor="top"
           onClose={this.handleSearchDrawerClose}
         >
-          <HeaderSearchDrawer onClose={this.handleSearchDrawerClose} />
+          <SearchDrawer onClose={this.handleSearchDrawerClose} />
         </Drawer>
       </AppBar>
     );

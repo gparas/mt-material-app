@@ -8,17 +8,17 @@ import {
 } from '@material-ui/core';
 
 // custom
-import HeaderSubMenu from './HeaderSubMenu';
-import headerStyle from './headerStyle';
-import appBarRoutes from '../../routes/appBar';
+import SubMenu from './SubMenu';
+import headerStyle from '../headerStyle';
+import appBarRoutes from '../../../routes/appBar';
 
-function HeaderMenu({ classes }) {
+function Menu({ classes }) {
   return (
     <div className={classes.mainMenu}>
       {appBarRoutes.map((menuItem) => {
         if (menuItem.children !== undefined) {
           return (
-            <HeaderSubMenu
+            <SubMenu
               key={menuItem.id}
               name={menuItem.name}
               icon={menuItem.icon}
@@ -36,8 +36,8 @@ function HeaderMenu({ classes }) {
   );
 }
 
-HeaderMenu.propTypes = {
+Menu.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(headerStyle)(HeaderMenu);
+export default withStyles(headerStyle)(Menu);

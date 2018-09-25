@@ -11,7 +11,7 @@ function Zoom(props) {
 
   return (
     <SvgIcon {...props}>
-      <g fill={secondaryfill} stroke={secondaryfill} strokeLinecap="square" strokeWidth={strokeWidth}>
+      <g fill={secondaryfill} stroke={secondaryfill} strokeLinecap="square" strokeWidth={strokeWidth} transform="translate(1.8000000000000003 1.8000000000000003) scale(0.85)">
         <line fill="none" x1="21" x2="16.65" y1="21" y2="16.65" />
         <circle cx="11" cy="11" fill="none" r="8" stroke={fill} />
       </g>
