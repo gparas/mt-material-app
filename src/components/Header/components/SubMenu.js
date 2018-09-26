@@ -10,9 +10,6 @@ import {
   Grow,
   Paper,
   List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   ClickAwayListener,
 } from '@material-ui/core';
 
@@ -22,8 +19,27 @@ import {
   ExpandMore,
 } from '@material-ui/icons';
 
+import {
+  ListItemLink,
+} from '../../BrandElements';
+
+import { types } from '../../../utils/colors';
+
 // custom
-import headerStyle from '../headerStyle';
+const styles = () => ({
+  // Dropdown menu & mobile drawer style
+  paperBackgroundColor: {
+    backgroundColor: types.dark.background.paper,
+  },
+  buttonActive: {
+    backgroundColor: types.dark.action.selected,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    '&:hover': {
+      backgroundColor: types.dark.action.selected,
+    },
+  },
+});
 
 class SubMenu extends React.Component {
   state = {
@@ -75,32 +91,13 @@ class SubMenu extends React.Component {
                 <ClickAwayListener onClickAway={this.handleClose}>
                   <List dense>
                     {menuItem.map(subMenu => (
-                      <ListItem
+                      <ListItemLink
                         key={subMenu.id}
                         divider={subMenu.divider}
-                        onClick={this.handleClose}
-                        classes={{
-                          root: classes.listItem,
-                          divider: classes.listItemDivider,
-                        }}
-                      >
-                        {
-                          subMenu.icon !== undefined && (
-                            <ListItemIcon
-                              className={classes.listItemIconColor}
-                            >
-                              {subMenu.icon}
-                            </ListItemIcon>
-                          )
-                        }
-                        <ListItemText
-                          inset={subMenu.inset}
-                          classes={{
-                            primary: classes.listItemTextColor,
-                          }}
-                          primary={subMenu.name}
-                        />
-                      </ListItem>
+                        icon={subMenu.icon}
+                        inset={subMenu.inset}
+                        primary={subMenu.name}
+                      />
                     ))}
                   </List>
                 </ClickAwayListener>
@@ -119,4 +116,4 @@ SubMenu.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(headerStyle)(SubMenu);
+export default withStyles(styles)(SubMenu);

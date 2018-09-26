@@ -11,7 +11,7 @@ function Boat(props) {
 
   return (
     <SvgIcon {...props}>
-      <g fill={secondaryfill} stroke={secondaryfill} strokeLinecap="square" strokeWidth={strokeWidth}>
+      <g fill={secondaryfill} stroke={secondaryfill} strokeLinecap="square" strokeWidth={strokeWidth} transform="translate(2 2) scale(0.8)">
         <polyline fill="none" points="10,6 10,1 14,1 14,6 " stroke={fill} />
         <polyline fill="none" points="5,13.9 5,6 19,6 19,13.9 " stroke={fill} strokeLinecap="butt" />
         <path d="M1,19.1 c0,2.2,1.8,4,4,4c1.5,0,2.8-0.9,3.5-2.1c0.7,1.2,2,2.1,3.5,2.1s2.8-0.9,3.5-2.1c0.7,1.2,2,2.1,3.5,2.1c2.2,0,4-1.8,4-4" fill="none" />

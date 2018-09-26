@@ -22,7 +22,7 @@ const appBarRoutes = [
       {
         id: 1,
         path: '/',
-        icon: <Boat strokeWidth={1} />,
+        icon: <Boat />,
         name: 'Vessels',
         divider: false,
         inset: true,
@@ -44,7 +44,7 @@ const appBarRoutes = [
       {
         id: 4,
         path: '/',
-        icon: <Anchor strokeWidth={1} />,
+        icon: <Anchor />,
         name: 'Ports',
         divider: false,
         inset: true,
@@ -72,7 +72,7 @@ const appBarRoutes = [
       },
       {
         id: 8,
-        icon: <Hotspot strokeWidth={1} />,
+        icon: <Hotspot />,
         path: '/',
         name: 'Stations',
         divider: true,
@@ -81,7 +81,7 @@ const appBarRoutes = [
       {
         id: 9,
         path: '/',
-        icon: <Lighthouse strokeWidth={1} />,
+        icon: <Lighthouse />,
         name: 'Lights & AtoN',
         divider: true,
         inset: true,
@@ -89,7 +89,7 @@ const appBarRoutes = [
       {
         id: 10,
         path: '/',
-        icon: <Building strokeWidth={1} />,
+        icon: <Building />,
         name: 'Companies',
         divider: false,
         inset: true,

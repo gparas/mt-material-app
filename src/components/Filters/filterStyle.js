@@ -1,5 +1,5 @@
 const drawerWidth = 320;
-const drawerActionWidth = 56;
+const drawerActionWidth = 48;
 
 const filterStyle = theme => ({
   drawerPaper: {
@@ -10,7 +10,7 @@ const filterStyle = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    ...theme.mixins.gutters(),
+    // ...theme.mixins.gutters(),
   },
   drawerPaperClose: {
     transition: theme.transitions.create('left', {
@@ -20,9 +20,9 @@ const filterStyle = theme => ({
     left: -drawerWidth,
   },
   drawerPaperAction: {
-    boxSizing: 'content-box',
     width: drawerActionWidth,
     backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.primary.contrastText,
   },
   drawerPaperActionIcon: {
     color: theme.palette.primary.contrastText,

@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // @material-ui/core components
 
-import FilterTitle from './FilterTitle';
+import Title from './Title';
 
-const Layers = ({ onClick }) => (
+const Weather = ({ onClick }) => (
   <React.Fragment>
-    <FilterTitle
-      title="Layers"
+    <Title
+      title="Weather Maps"
       onClick={onClick}
     />
   </React.Fragment>
 );
 
-Layers.propTypes = {
+Weather.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default Layers;
+export default Weather;

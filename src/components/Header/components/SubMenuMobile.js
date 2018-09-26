@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 
 // @material-ui/core
 import {
-  withStyles,
   List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Collapse,
 } from '@material-ui/core';
 
@@ -17,8 +13,9 @@ import {
   ExpandLess,
 } from '@material-ui/icons';
 
-// custom
-import headerStyle from '../headerStyle';
+import {
+  ListItemLink,
+} from '../../BrandElements';
 
 class SubMenuMobile extends React.Component {
   state = {
@@ -31,54 +28,25 @@ class SubMenuMobile extends React.Component {
 
   render() {
     const { open } = this.state;
-    const { name, menuItem, classes } = this.props;
+    const { name, menuItem } = this.props;
     return (
       <React.Fragment>
-        <ListItem
-          button
+        <ListItemLink
+          primary={name}
           onClick={this.handleClick}
-          classes={{
-            root: classes.listItem,
-            divider: classes.listItemDivider,
-          }}
         >
-          <ListItemText
-            primary={name}
-            classes={{
-              primary: classes.listItemTextColor,
-            }}
-          />
           {open ? <ExpandLess nativeColor="white" /> : <ExpandMore nativeColor="white" />}
-        </ListItem>
+        </ListItemLink>
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List dense>
             {menuItem.map(subMenu => (
-              <ListItem
+              <ListItemLink
                 key={subMenu.id}
-                button
                 divider={subMenu.divider}
-                classes={{
-                  root: classes.listItem,
-                  divider: classes.listItemDivider,
-                }}
-              >
-                {
-                  subMenu.icon !== undefined && (
-                    <ListItemIcon
-                      className={classes.listItemIconColor}
-                    >
-                      {subMenu.icon}
-                    </ListItemIcon>
-                  )
-                }
-                <ListItemText
-                  inset={subMenu.inset}
-                  primary={subMenu.name}
-                  classes={{
-                    primary: classes.listItemTextColor,
-                  }}
-                />
-              </ListItem>
+                icon={subMenu.icon}
+                inset={subMenu.inset}
+                primary={subMenu.name}
+              />
             ))}
           </List>
         </Collapse>
@@ -89,8 +57,7 @@ class SubMenuMobile extends React.Component {
 
 SubMenuMobile.propTypes = {
   name: PropTypes.string.isRequired,
-  classes: PropTypes.object.isRequired,
   menuItem: PropTypes.array.isRequired,
 };
 
-export default withStyles(headerStyle)(SubMenuMobile);
+export default SubMenuMobile;

@@ -11,7 +11,7 @@ function Building(props) {
 
   return (
     <SvgIcon {...props}>
-      <g fill={secondaryfill} stroke={secondaryfill} strokeLinecap="square" strokeWidth={strokeWidth}>
+      <g fill={secondaryfill} stroke={secondaryfill} strokeLinecap="square" strokeWidth={strokeWidth} transform="translate(2 2) scale(0.8)">
         <polyline fill="none" points=" 5,23 1,23 1,14 5,14 " />
         <polyline fill="none" points=" 19,23 23,23 23,14 19,14 " />
         <rect height="22" width="14" fill="none" stroke={fill} x="5" y="1" />

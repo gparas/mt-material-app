@@ -8,20 +8,16 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  Badge,
   Hidden,
   Drawer,
 } from '@material-ui/core';
 
-// @material-ui/icons
-import {
-  Person,
-  Notifications,
-  // Menu,
-  // Search,
-} from '@material-ui/icons';
+import BadgeEmpty from '../BrandElements/BadgeEmpty';
 
 import {
+  Megaphone,
+  MenuToggle,
+  User,
   Zoom,
 } from '../Icons';
 
@@ -32,7 +28,19 @@ import {
   SearchDrawer,
 } from './components';
 
-import headerStyle from './headerStyle';
+const styles = theme => ({
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  rightMenu: {
+    display: 'flex',
+    marginLeft: 'auto',
+  },
+  paperBackgroundColor: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+  },
+});
 
 class Header extends React.Component {
   state = {
@@ -82,22 +90,22 @@ class Header extends React.Component {
             </IconButton>
             <Hidden mdDown>
               <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
-                  <Notifications />
-                </Badge>
+                <BadgeEmpty>
+                  <Megaphone />
+                </BadgeEmpty>
               </IconButton>
             </Hidden>
             <IconButton color="inherit">
-              <Person />
+              <User />
             </IconButton>
             <Hidden lgUp>
               <IconButton
                 color="inherit"
                 onClick={this.handleDrawerOpen}
               >
-                <Badge badgeContent={4} color="secondary">
-                  <Notifications />
-                </Badge>
+                <BadgeEmpty>
+                  <MenuToggle />
+                </BadgeEmpty>
               </IconButton>
             </Hidden>
           </div>
@@ -129,4 +137,4 @@ Header.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(headerStyle)(Header);
+export default withStyles(styles)(Header);

@@ -1,48 +1,40 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 // @material-ui/core components
 import {
-  withStyles,
   Divider,
   List,
-  ListItem,
   ListItemText,
-  ListItemIcon,
 } from '@material-ui/core';
 
 // @material-ui/icons
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
+import {
+  ListItemLink,
+} from '../../BrandElements';
+
+
 // custom
 import SubMenuMobile from './SubMenuMobile';
 import appBarRoutes from '../../../routes/appBar';
-import headerStyle from '../headerStyle';
 
 
-function MenuMobile({ classes }) {
+function MenuMobile() {
   return (
     <React.Fragment>
-      <List component="div">
-        <ListItem
-          button
-          classes={{
-            root: classes.listItem,
-          }}
+      <List>
+        <ListItemLink
+          primary="Notifications"
+          icon={<NotificationsIcon />}
         >
-          <ListItemIcon className={classes.listItemIconColor}>
-            <NotificationsIcon />
-          </ListItemIcon>
           <ListItemText
-            primary="Notifications"
-            classes={{
-              primary: classes.listItemTextColor,
-            }}
+            primary={4}
+            primaryTypographyProps={{ color: 'inherit' }}
           />
-          <ListItemText secondary={4} />
-        </ListItem>
+        </ListItemLink>
       </List>
-      <Divider className={classes.listItemDivider} />
+      <Divider />
       <List component="nav">
         {appBarRoutes.map((menuItem) => {
           if (menuItem.children !== undefined) {
@@ -56,21 +48,10 @@ function MenuMobile({ classes }) {
             );
           }
           return (
-            <ListItem
-              button
+            <ListItemLink
               key={menuItem.id}
-              classes={{
-                root: classes.listItem,
-                divider: classes.listItemDivider,
-              }}
-            >
-              <ListItemText
-                primary={menuItem.name}
-                classes={{
-                  primary: classes.listItemTextColor,
-                }}
-              />
-            </ListItem>
+              primary={menuItem.name}
+            />
           );
         })}
       </List>
@@ -78,8 +59,4 @@ function MenuMobile({ classes }) {
   );
 }
 
-MenuMobile.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(headerStyle)(MenuMobile);
+export default MenuMobile;

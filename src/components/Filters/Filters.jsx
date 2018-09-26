@@ -5,7 +5,6 @@ import classNames from 'classnames';
 // @material-ui/core components
 import {
   Hidden,
-  List,
   Drawer,
   withStyles,
 } from '@material-ui/core';
@@ -18,13 +17,14 @@ import {
   Zoom,
 } from '../Icons';
 
-import FilterAction from './FilterAction';
-
-import Search from './FilterSearch';
-import Vessel from './FilterVessel';
-import Fleet from './FilterFleet';
-import Layers from './FilterLayers';
-import Weather from './FilterWeather';
+import {
+  Action,
+  Search,
+  Vessel,
+  Fleet,
+  Layers,
+  Weather,
+} from './components';
 
 import filterStyle from './filterStyle';
 
@@ -89,17 +89,15 @@ class Filters extends React.Component {
             }}
           >
             <div className={classes.toolbar} />
-            <List component="div">
-              {actions.map((action, i) => (
-                <FilterAction
-                  key={action.name}
-                  icon={action.icon}
-                  tooltipTitle={action.name}
-                  selected={selectedIndex === i}
-                  onClick={() => this.handleDrawerOpen(i)}
-                />
-              ))}
-            </List>
+            {actions.map((action, i) => (
+              <Action
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+                selected={selectedIndex === i}
+                onClick={() => this.handleDrawerOpen(i)}
+              />
+            ))}
           </Drawer>
         </Hidden>
         <Drawer

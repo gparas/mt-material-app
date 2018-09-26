@@ -11,7 +11,7 @@ function Anchor(props) {
 
   return (
     <SvgIcon {...props}>
-      <g fill={secondaryfill} stroke={secondaryfill} strokeLinecap="square" strokeWidth={strokeWidth}>
+      <g fill={secondaryfill} stroke={secondaryfill} strokeLinecap="square" strokeWidth={strokeWidth} transform="translate(2 2) scale(0.8)">
         <line fill="none" strokeLinecap="butt" x1="12" x2="12" y1="5" y2="23" />
         <circle cx="12" cy="3" fill="none" r="2" />
         <line fill="none" x1="9" x2="15" y1="9" y2="9" />

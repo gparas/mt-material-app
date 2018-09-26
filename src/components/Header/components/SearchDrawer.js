@@ -15,8 +15,6 @@ import {
   IoIosSearch,
 } from 'react-icons/io';
 
-import { FiSearch } from 'react-icons/fi';
-
 const styles = theme => ({
   arrowButton: {
     marginLeft: theme.spacing.unit / 2,

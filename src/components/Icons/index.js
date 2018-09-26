@@ -1,9 +1,13 @@
 export { default as Anchor } from './Anchor';
+export { default as Bell } from './Bell';
 export { default as Boat } from './Boat';
 export { default as Building } from './Building';
 export { default as Filter } from './Filter';
 export { default as Hotspot } from './Hotspot';
 export { default as Layer } from './Layer';
 export { default as Lighthouse } from './Lighthouse';
+export { default as Megaphone } from './Megaphone';
+export { default as MenuToggle } from './MenuToggle';
+export { default as User } from './User';
 export { default as Wind } from './Wind';
 export { default as Zoom } from './Zoom';

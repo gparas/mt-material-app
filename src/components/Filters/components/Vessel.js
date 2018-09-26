@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// @material-ui/core components
 
-import FilterTitle from './FilterTitle';
-import FilterSelectionControls from './FilterSelectionControls';
+import Title from './Title';
+import SelectionControls from './SelectionControls';
 
 const status = ['Underway', 'Anchored'];
 const conditions = ['Unknown', 'In Ballast', 'Partially Laden', 'Laden'];
 
 const Vessel = ({ onClick }) => (
   <React.Fragment>
-    <FilterTitle
+    <Title
       title="Vessel Filters"
       onClick={onClick}
     />
-    <FilterSelectionControls
+    <SelectionControls
       legend="Current Status"
       label={status}
     />
-    <FilterSelectionControls
+    <SelectionControls
       legend="Load Condition"
       label={conditions}
       disabled

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // @material-ui/core components
 
-import FilterTitle from './FilterTitle';
+import Title from './Title';
 
 const Fleet = ({ onClick }) => (
   <React.Fragment>
-    <FilterTitle
+    <Title
       title="My Fleet"
       onClick={onClick}
     />

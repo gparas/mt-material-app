@@ -2,23 +2,26 @@ import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { primaryColor, secondaryColor } from './utils/colors';
-import { dark } from './utils/theme';
+import {
+  primaryColor,
+  secondaryColor,
+  types,
+} from './utils/colors';
 
 const theme = createMuiTheme({
   palette: {
     background: {
-      default: dark.background.default,
+      default: types.dark.background.default,
     },
     primary: {
-      light: primaryColor[300],
-      main: primaryColor[700],
-      dark: primaryColor[900],
+      light: primaryColor.light,
+      main: primaryColor.main,
+      dark: primaryColor.dark,
     },
     secondary: {
-      light: secondaryColor[300],
-      main: secondaryColor[500],
-      dark: secondaryColor[700],
+      light: secondaryColor.light,
+      main: secondaryColor.main,
+      dark: secondaryColor.dark,
       contrastText: '#fff',
     },
   },
@@ -32,6 +35,11 @@ const theme = createMuiTheme({
     ].join(','),
     fontWeightMedium: 600,
   },
+  mixins: {
+    toolbar: {
+      minHeight: 56,
+    },
+  },
   overrides: {
     MuiButton: {
       root: {
@@ -41,7 +49,19 @@ const theme = createMuiTheme({
     },
     MuiAppBar: {
       colorPrimary: {
-        backgroundColor: primaryColor[900],
+        backgroundColor: primaryColor.dark,
+      },
+    },
+    MuiListItemIcon: {
+      root: {
+        marginRight: 0,
+      },
+    },
+    MuiListItemText: {
+      inset: {
+        '&:first-child': {
+          paddingLeft: 40,
+        },
       },
     },
   },

@@ -9,8 +9,14 @@ import {
 
 // custom
 import SubMenu from './SubMenu';
-import headerStyle from '../headerStyle';
 import appBarRoutes from '../../../routes/appBar';
+
+const styles = () => ({
+  mainMenu: {
+    display: 'flex',
+    marginLeft: 'auto',
+  },
+});
 
 function Menu({ classes }) {
   return (
@@ -40,4 +46,4 @@ Menu.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(headerStyle)(Menu);
+export default withStyles(styles)(Menu);
