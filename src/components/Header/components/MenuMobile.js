@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // @material-ui/core components
 import {
+  withTheme,
   Divider,
   List,
   ListItemText,
@@ -20,13 +22,14 @@ import SubMenuMobile from './SubMenuMobile';
 import appBarRoutes from '../../../routes/appBar';
 
 
-function MenuMobile() {
+function MenuMobile({ theme }) {
   return (
     <React.Fragment>
-      <List>
+      <List disablePadding>
         <ListItemLink
           primary="Notifications"
           icon={<NotificationsIcon />}
+          style={{ ...theme.mixins.toolbar }}
         >
           <ListItemText
             primary={4}
@@ -59,4 +62,8 @@ function MenuMobile() {
   );
 }
 
-export default MenuMobile;
+MenuMobile.propTypes = {
+  theme: PropTypes.object,
+};
+
+export default withTheme()(MenuMobile);

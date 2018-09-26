@@ -54,6 +54,7 @@ const theme = createMuiTheme({
     },
     MuiListItemIcon: {
       root: {
+        color: 'inherit',
         marginRight: 0,
       },
     },

@@ -37,6 +37,7 @@ const styles = theme => ({
     marginLeft: 'auto',
   },
   paperBackgroundColor: {
+    width: 240,
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
   },

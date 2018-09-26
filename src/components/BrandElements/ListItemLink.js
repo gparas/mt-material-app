@@ -26,9 +26,6 @@ const styles = {
     },
   },
   selected: {},
-  icon: {
-    color: 'inherit',
-  },
 };
 
 
@@ -50,11 +47,10 @@ function ListItemLink({
           divider: classes.divider,
           button: classes.button,
           selected: classes.selected,
-          gutters: classes.gutters,
         }}
         {...other}
       >
-        {icon && <ListItemIcon classes={{ root: classes.icon }}>{icon}</ListItemIcon>}
+        {icon && <ListItemIcon>{icon}</ListItemIcon>}
         <ListItemText
           inset={inset}
           primary={primary}
